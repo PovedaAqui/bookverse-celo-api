@@ -13,5 +13,6 @@ export default async (req, res) => {
     );
   
     const data = await response.text();
+    res.status(200).json({ data: data})
     console.log(data);
 }
