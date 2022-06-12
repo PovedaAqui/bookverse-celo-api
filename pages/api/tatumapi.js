@@ -1,6 +1,22 @@
+import Cors from 'cors';
+import initMiddleware from '../../lib/init-middleware';
+
+// Initialize the cors middleware
+const cors = initMiddleware(
+  // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
+  Cors({
+    // Only allow requests with GET, POST and OPTIONS
+    methods: ['GET', 'POST', 'OPTIONS'],
+  })
+)
+
 export default async (req, res) => {
-    const chain = 'ETH';
-    const address = '0x8926d4fDF7D1Ca0bB7d803f143fE2036245c57be';
+
+    // Run cors
+    await cors(req, res)
+
+    const chain = req.body.chain;
+    const address = req.body.address;
     const URL = `https://api-eu1.tatum.io/v3/nft/address/balance/${chain}/${address}`;
     const response = await fetch(
         URL,
@@ -10,9 +26,11 @@ export default async (req, res) => {
               'x-api-key': `${process.env.TATUM_API_KEY}`
             }
           }
-    );
-  
-    const data = await response.text();
-    res.status(200).json({ data: data})
-    console.log(data);
+    )
+    .then(response => response.json())
+    .then(data => res.status(200).json({ data: data}))
+      
+    //const data = await response.text();
+    //res.status(200).json({ data: data})
+    //console.log(data);
 }
