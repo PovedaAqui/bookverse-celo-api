@@ -15,14 +15,15 @@ export default async (req, res) => {
     // Run cors
     await cors(req, res)
 
-    const {chain, address, operation, feeCurrency, contractAddress, 
-            nftAddress, seller, listingID, tokenID, price} = req.body;
+    const {address, operation, contractAddress, tokenId, price} = req.body;
     
     const URL = `https://api-eu1.tatum.io/v3/blockchain/marketplace/listing/${operation}`;
 
-    //TODO
-    //let params = {};
-    //Insert logic to set the value of params properly based on operation's value
+    const min = 1;
+    const max = 100000000000000;
+    const listingId = min + Math.random() * (max - min);
+    console.log(listingId);
+
 
     const response = await fetch(
         URL,
@@ -33,17 +34,17 @@ export default async (req, res) => {
               'x-api-key': `${process.env.TATUM_API_KEY}`
             },
             body: JSON.stringify({
-              chain: `${chain}`,
+              chain: 'CELO',
               feeCurrency: 'CELO',
-              contractAddress: `${contractAddress}`,
-              nftAddress: `${nftAddress}`,
-              seller: `${seller}`,
-              listingId: `${listingID}`,
+              contractAddress: '0xC2aCe1c1393d11Ff49966E19F73Da59D3E4c3B15',
+              nftAddress: `${contractAddress}`,
+              seller: `${address}`,
+              listingId: `${listingId}`,
               amount: '1',
-              tokenId: `${tokenID}`,
+              tokenId: `${tokenId}`,
               price: `${price}`,
               isErc721: true,
-              fromPrivateKey: '0x05e150c73f1920ec14caa1e0b6aa09940899678051a78542840c2668ce5080c2',
+              signatureId: '17a54cc4-0cde-42f4-8ce3-7fdb3f17a153',
               nonce: 1
             })
           }

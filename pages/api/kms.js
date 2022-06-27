@@ -15,9 +15,8 @@ export default async (req, res) => {
     // Run cors
     await cors(req, res)
 
-    const chain = req.body.chain;
-    const address = req.body.address;
-    const URL = `https://api-eu1.tatum.io/v3/nft/address/balance/${chain}/${address}`;
+    const listing = req.body.listing;
+    const URL = `https://api-eu1.tatum.io/v3/kms/${listing}`;
     const response = await fetch(
         URL,
         {
