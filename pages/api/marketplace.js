@@ -40,12 +40,10 @@ export default async (req, res) => {
               nftAddress: `${contractAddress}`,
               seller: `${address}`,
               listingId: `${listingId}`,
-              amount: '1',
               tokenId: `${tokenId}`,
               price: `${price}`,
               isErc721: true,
-              signatureId: '17a54cc4-0cde-42f4-8ce3-7fdb3f17a153',
-              nonce: 1
+              signatureId: '17a54cc4-0cde-42f4-8ce3-7fdb3f17a153'
             })
           }
     )
