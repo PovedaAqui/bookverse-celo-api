@@ -20,7 +20,7 @@ export default async (req, res) => {
     const URL = `https://api-eu1.tatum.io/v3/blockchain/marketplace/listing/${operation}`;
 
     const min = 1;
-    const max = 100000000000000;
+    const max = 1111;
     const listingId = min + Math.random() * (max - min);
     console.log(listingId);
 
