@@ -19,11 +19,10 @@ export default async (req, res) => {
     
     const URL = `https://api-eu1.tatum.io/v3/blockchain/marketplace/listing/${operation}`;
 
-    const min = 1;
-    const max = 1111;
-    const listingId = min + Math.random() * (max - min);
+    const min = 2;
+    const max = 99999999999;
+    const listingId = Math.floor(Math.random(min, max) * (max+1));
     console.log(listingId);
-
 
     const response = await fetch(
         URL,
@@ -36,7 +35,7 @@ export default async (req, res) => {
             body: JSON.stringify({
               chain: 'CELO',
               feeCurrency: 'CELO',
-              contractAddress: '0xC2aCe1c1393d11Ff49966E19F73Da59D3E4c3B15',
+              contractAddress: '0xA66D972f55BDE3Ab8683e7eFc4f84f7221323ED2',
               nftAddress: `${contractAddress}`,
               seller: `${address}`,
               listingId: `${listingId}`,
