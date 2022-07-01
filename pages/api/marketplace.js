@@ -15,15 +15,15 @@ export default async (req, res) => {
     // Run cors
     await cors(req, res)
 
-    const {address, operation, contractAddress, tokenId, price} = req.body;
+    const {address, operation, contractAddress, tokenId, price, listingId} = req.body;
     
     const URL = `https://api-eu1.tatum.io/v3/blockchain/marketplace/listing/${operation}`;
 
-    const min = 2;
-    const max = 99999999999;
-    const listingId = Math.floor(Math.random(min, max) * (max+1));
+    // const min = 2;
+    // const max = 99999999999;
+    // const listingId = Math.floor(Math.random(min, max) * (max+1));
+    // console.log(listingId);
     console.log(listingId);
-
     const response = await fetch(
         URL,
         {
