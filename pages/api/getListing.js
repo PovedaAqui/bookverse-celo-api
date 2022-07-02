@@ -16,9 +16,8 @@ export default async (req, res) => {
     await cors(req, res)
 
     const contractAddress = '0xA66D972f55BDE3Ab8683e7eFc4f84f7221323ED2';
-    // const {chain, type} = req.body;
-    // console.log(chain);
-    const URL = `https://api-eu1.tatum.io/v3/blockchain/marketplace/listing/CELO/${contractAddress}/INITIATED`;
+    const {type} = req.body;
+    const URL = `https://api-eu1.tatum.io/v3/blockchain/marketplace/listing/CELO/${contractAddress}/${type}`;
     const response = await fetch(
         URL,
         {

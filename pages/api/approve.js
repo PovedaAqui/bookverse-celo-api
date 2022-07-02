@@ -16,7 +16,7 @@ export default async (req, res) => {
     await cors(req, res)
 
     const {tokenId} = req.body;
-    console.log(tokenId);
+    // console.log(tokenId);
     
     const URL = `https://api-eu1.tatum.io/v3/blockchain/auction/approve`;
 

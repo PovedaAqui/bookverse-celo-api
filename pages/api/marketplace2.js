@@ -15,7 +15,7 @@ export default async (req, res) => {
     // Run cors
     await cors(req, res)
 
-    const {address, operation, contractAddress, tokenId, price, listingId} = req.body;
+    const {operation, listingId} = req.body;
     
     const URL = `https://api-eu1.tatum.io/v3/blockchain/marketplace/listing/${operation}`;
 
@@ -31,17 +31,13 @@ export default async (req, res) => {
             body: JSON.stringify({
               chain: 'CELO',
               feeCurrency: 'CELO',
+              erc20Address: '0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9',
               contractAddress: '0xA66D972f55BDE3Ab8683e7eFc4f84f7221323ED2',
-              nftAddress: `${contractAddress}`,
-              seller: `${address}`,
               listingId: `${listingId}`,
-              tokenId: `${tokenId}`,
-              price: `${price}`,
-              isErc721: true,
               signatureId: '17a54cc4-0cde-42f4-8ce3-7fdb3f17a153',
               fee: {
-                  gasLimit: '40000000',
-                  gasPrice: '30'
+                gasLimit: "4000000",
+                gasPrice: "30"
               }
             })
           }
