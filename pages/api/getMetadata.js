@@ -18,7 +18,7 @@ export default async (req, res) => {
     const chain = 'CELO';
     const {nftAddress, tokenId} = req.body;
     console.log(tokenId);
-    const URL = `https://api-eu1.tatum.io/v3/nft/address/balance/${chain}/${nftAddress}/${tokenId}`;
+    const URL = `https://api-eu1.tatum.io/v3/nft/metadata/${chain}/${nftAddress}/${tokenId}`;
     const response = await fetch(
         URL,
         {
