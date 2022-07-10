@@ -14,7 +14,6 @@ export default async (req, res) => {
 
     // Run cors
     await cors(req, res)
-
     const listing = req.body.listing;
     const URL = `https://api-eu1.tatum.io/v3/kms/${listing}`;
     const response = await fetch(

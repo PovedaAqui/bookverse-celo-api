@@ -18,8 +18,7 @@ export default async (req, res) => {
     const {operation, listingId} = req.body;
     
     const URL = `https://api-eu1.tatum.io/v3/blockchain/marketplace/listing/${operation}`;
-
-    //console.log(listingId);
+    
     const response = await fetch(
         URL,
         {
