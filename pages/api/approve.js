@@ -15,7 +15,7 @@ export default async (req, res) => {
     // Run cors
     await cors(req, res)
 
-    const {tokenId} = req.body;
+    const {tokenId, contractAddress} = req.body;
     //console.log(tokenId);
     
     const URL = `https://api-eu1.tatum.io/v3/blockchain/auction/approve`;
@@ -31,7 +31,7 @@ export default async (req, res) => {
             body: JSON.stringify({
               chain: 'CELO',
               feeCurrency: 'CELO',
-              contractAddress: '0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9',
+              contractAddress: `${contractAddress}`,
               spender: '0xA66D972f55BDE3Ab8683e7eFc4f84f7221323ED2',
               tokenId: `${tokenId}`,
               isErc721: true,
