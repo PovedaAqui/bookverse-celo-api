@@ -30,8 +30,7 @@ export default async (req, res) => {
             body: JSON.stringify({
               chain: 'CELO',
               feeCurrency: 'CELO',
-              erc20Address: '0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9',
-              contractAddress: '0xA66D972f55BDE3Ab8683e7eFc4f84f7221323ED2',
+              contractAddress: `${process.env.CONTRACT_ADDRESS}`,
               listingId: `${listingId}`,
               signatureId: '17a54cc4-0cde-42f4-8ce3-7fdb3f17a153',
               fee: {

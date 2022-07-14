@@ -31,7 +31,7 @@ export default async (req, res) => {
             body: JSON.stringify({
               chain: 'CELO',
               feeCurrency: 'CELO',
-              contractAddress: '0xA66D972f55BDE3Ab8683e7eFc4f84f7221323ED2',
+              contractAddress: `${process.env.CONTRACT_ADDRESS}`,
               nftAddress: `${contractAddress}`,
               seller: `${address}`,
               listingId: `${listingId}`,

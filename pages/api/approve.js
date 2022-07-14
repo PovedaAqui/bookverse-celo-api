@@ -32,7 +32,7 @@ export default async (req, res) => {
               chain: 'CELO',
               feeCurrency: 'CELO',
               contractAddress: `${contractAddress}`,
-              spender: '0xA66D972f55BDE3Ab8683e7eFc4f84f7221323ED2',
+              spender: `${process.env.CONTRACT_ADDRESS}`,
               tokenId: `${tokenId}`,
               isErc721: true,
               signatureId: '17a54cc4-0cde-42f4-8ce3-7fdb3f17a153',

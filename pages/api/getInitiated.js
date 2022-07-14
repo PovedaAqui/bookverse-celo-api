@@ -15,7 +15,7 @@ export default async (req, res) => {
     // Run cors
     await cors(req, res)
 
-    const contractAddress = '0xA66D972f55BDE3Ab8683e7eFc4f84f7221323ED2';
+    const contractAddress = `${process.env.CONTRACT_ADDRESS}`;
     const {id} = req.body;
     // console.log(id);
     const URL = `https://api-eu1.tatum.io/v3/blockchain/marketplace/listing/CELO/${contractAddress}/listing/${id}`;
